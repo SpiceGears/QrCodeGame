@@ -25,13 +25,16 @@
     <string name="enter_nickname">Musisz podać nick</string>
 
     <string name="email_hint">Email</string>
+    <string name="phone_hint">Numer telefonu (opcjonalnie)</string>
     <string name="team_hint">Team (opcjonalnie)</string>
     <string name="nickname_hint">Nick</string>
     <string name="password_hint">Hasło</string>
     <string name="repeat_password_hint">Powtórz hasło</string>
 
-    <string name="signup_btn">Zarejestruj</string>
+    <string name="signup_btn">Załóż konto</string>
     <string name="login_btn">Zaloguj</string>
     <string name="forgot_password_btn">Zresetuj hasło</string>
+
+
 
 </resources>

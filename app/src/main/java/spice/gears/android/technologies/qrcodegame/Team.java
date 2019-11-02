@@ -1,15 +1,15 @@
 package spice.gears.android.technologies.qrcodegame;
 
-public class AddTeam {
+public class Team {
 
     String teamId;
     String name;
 
-    public AddTeam() {
+    public Team() {
 
     }
 
-    public AddTeam( String name) {
+    public Team(String name) {
 
         this.name = name;
     }

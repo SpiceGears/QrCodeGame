@@ -36,10 +36,19 @@
         android:inputType="textEmailAddress" />
 
     <EditText
-        android:id="@+id/etTeam"
+        android:id="@+id/etPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/etEmail"
+        android:hint="@string/phone_hint"
+        android:ems="10"
+        android:inputType="number"/>
+
+    <EditText
+        android:id="@+id/etTeam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etPhone"
         android:hint="@string/team_hint"
         android:ems="10"
         android:inputType="text"/>
@@ -85,12 +94,5 @@
         android:layout_below="@+id/btnSignup"
         android:text="@string/login_btn" />
 
-    <Button
-        android:id="@+id/btnUserForgotPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btnLogin"
-        android:text="@string/forgot_password_btn"
-        tools:visibility="visible" />
 
 </RelativeLayout>

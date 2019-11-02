@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -25,17 +26,18 @@ public class MainActivity extends AppCompatActivity {
 
     ProgressBar progressBar;
     EditText email;
+    EditText phone;
     EditText teamName;
     EditText nickname;
     EditText password;
     EditText repetPassword;
     Button signup;
     Button login;
-    Button forgotPass;
 
     FirebaseAuth firebaseAuth;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
+    PhoneAuthProvider phoneAuthProvider;
 
     String weryficationEmailSend;
     String passwordNotSame;
@@ -52,13 +54,13 @@ public class MainActivity extends AppCompatActivity {
 
         progressBar = findViewById(R.id.progressBar);
         email = findViewById(R.id.etEmail);
+        phone = findViewById(R.id.etPhone);
         password= findViewById(R.id.etPassword);
         teamName = findViewById(R.id.etTeam);
         nickname = findViewById(R.id.etNickname);
         repetPassword = findViewById(R.id.etRepetPassword);
         signup = findViewById(R.id.btnSignup);
         login = findViewById(R.id.btnLogin);
-        forgotPass = findViewById(R.id.btnUserForgotPassword);
 
         weryficationEmailSend = getString(R.string.werification_email_send);
         passwordNotSame = getString(R.string.passwords_are_not_the_same);
@@ -70,11 +72,14 @@ public class MainActivity extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
+        phoneAuthProvider = PhoneAuthProvider.getInstance();
         databaseReference = firebaseDatabase.getReference("Teams");
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
 
                 if (!TextUtils.isEmpty(email.getText().toString().trim()) && !TextUtils.isEmpty(password.getText().toString().trim()) && !TextUtils.isEmpty(nickname.getText().toString().trim())){
 
@@ -156,18 +161,6 @@ public class MainActivity extends AppCompatActivity {
                 repetPassword.setText("");
             }
         });
-
-        forgotPass.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ForgotPasswordActivity.class));
-                teamName.setText("");
-                nickname.setText("");
-                password.setText("");
-                repetPassword.setText("");
-            }
-        });
-
    }
    private void addTeam(){
         String Team = teamName.getText().toString().trim();
@@ -177,9 +170,9 @@ public class MainActivity extends AppCompatActivity {
 
             String id = databaseReference.push().getKey();
 
-            AddTeam addTeam = new AddTeam(Team);
+            spice.gears.android.technologies.qrcodegame.Team team = new Team(Team);
 
-            databaseReference.child(id).setValue(addTeam);
+            databaseReference.child(id).setValue(team);
 
 
        }else {
@@ -188,4 +181,3 @@ public class MainActivity extends AppCompatActivity {
         }
    }
 }
-//.

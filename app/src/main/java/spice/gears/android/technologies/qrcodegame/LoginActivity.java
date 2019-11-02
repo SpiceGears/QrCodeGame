@@ -3,7 +3,6 @@ package spice.gears.android.technologies.qrcodegame;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -12,7 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -26,6 +24,8 @@ public class LoginActivity extends AppCompatActivity {
     EditText userEmail;
     EditText userPass;
     Button userLogin;
+    Button userForgotPass;
+    Button userSignup;
 
     String weryficationEmailSend;
     String enterEmail;
@@ -44,6 +44,8 @@ public class LoginActivity extends AppCompatActivity {
         userEmail = findViewById(R.id.etUserEmail);
         userPass = findViewById(R.id.etUserPassword);
         userLogin = findViewById(R.id.btnUserLogin);
+        userForgotPass = findViewById(R.id.btnResetPassword);
+        userSignup = findViewById(R.id.btnRegister);
 
         weryficationEmailSend = getString(R.string.werification_email_send);
         enterEmail = getString(R.string.enter_email);
@@ -58,20 +60,20 @@ public class LoginActivity extends AppCompatActivity {
 
                     progressBar.setVisibility(View.VISIBLE);
 
-                    firebaseAuth.signInWithEmailAndPassword(userEmail.getText().toString(), userPass.getText().toString())
-                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                        firebaseAuth.signInWithEmailAndPassword(userEmail.getText().toString(), userPass.getText().toString())
+                                                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<AuthResult> task) {
 
-                                    progressBar.setVisibility(View.GONE);
+                                                        progressBar.setVisibility(View.GONE);
 
-                                    if (task.isSuccessful()){
-                                        if (firebaseAuth.getCurrentUser().isEmailVerified()){
-                                            startActivity(new Intent(LoginActivity.this, MainAppActivity.class));
-                                        }else {
-                                            Toast.makeText(LoginActivity.this, weryficationEmailSend,
-                                                    Toast.LENGTH_LONG).show();
-                                        }
+                                                        if (task.isSuccessful()){
+                                                            if (firebaseAuth.getCurrentUser().isEmailVerified()){
+                                                                startActivity(new Intent(LoginActivity.this, MainAppActivity.class));
+                                                            }else {
+                                                                Toast.makeText(LoginActivity.this, weryficationEmailSend,
+                                                                        Toast.LENGTH_LONG).show();
+                                                            }
 
                                     }else {
                                         Toast.makeText(LoginActivity.this, task.getException().getMessage(),
@@ -87,6 +89,23 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, enterPass,
                             Toast.LENGTH_LONG).show();
                 }
+            }
+        });
+
+        userForgotPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class));
+                userPass.setText("");
+            }
+        });
+
+        userSignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                userPass.setText("");
+                userEmail.setText("");
             }
         });
 
