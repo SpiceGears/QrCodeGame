@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Spice Game</string>
+    <string name="title_activity_main_app">MainAppActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+
+    <string name="enter_email_password_and_nickname">Musisz podać adres email, hasło oraz nick</string>
+    <string name="enter_email_and_password">Musisz podać adres email oraz hasło</string>
+    <string name="enter_email">Musisz podać adres email</string>
+    <string name="enter_password">Musisz podać hasło</string>
+    <string name="forgot_pass_email_send">Wysłano hasło na twój adres email</string>
+    <string name="werification_email_send">Wysłano email weryfikacyjny</string>
+    <string name="passwords_are_not_the_same">Hasła nie są takie same</string>
+    <string name="enter_nickname">Musisz podać nick</string>
+
+    <string name="email_hint">Email</string>
+    <string name="team_hint">Team (opcjonalnie)</string>
+    <string name="nickname_hint">Nick</string>
+    <string name="password_hint">Hasło</string>
+    <string name="repeat_password_hint">Powtórz hasło</string>
+
+    <string name="signup_btn">Zarejestruj</string>
+    <string name="login_btn">Zaloguj</string>
+    <string name="forgot_password_btn">Zresetuj hasło</string>
+
+</resources>
