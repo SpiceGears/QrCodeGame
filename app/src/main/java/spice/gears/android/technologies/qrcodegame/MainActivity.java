@@ -47,6 +47,12 @@ public class MainActivity extends AppCompatActivity {
     String enterEmail;
     String enterPassword;
 
+    String usersPass;
+    String phoneString;
+    int points;
+
+    MemberClass memberClass;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,7 +79,12 @@ public class MainActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
         phoneAuthProvider = PhoneAuthProvider.getInstance();
-        databaseReference = firebaseDatabase.getReference("Teams");
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Members");
+
+        memberClass = new MemberClass();
+        points = 0;
+
+
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,6 +96,8 @@ public class MainActivity extends AppCompatActivity {
 
                     if (password.getText().toString().equals(repetPassword.getText().toString())) {
 
+                        usersPass = password.getText().toString().trim();
+
                         progressBar.setVisibility(View.VISIBLE);
 
                         firebaseAuth.createUserWithEmailAndPassword(email.getText().toString(),
@@ -95,17 +108,35 @@ public class MainActivity extends AppCompatActivity {
 
                                         if (task.isSuccessful()){
 
+
                                             firebaseAuth.getCurrentUser().sendEmailVerification()
                                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                                                         @Override
                                                         public void onComplete(@NonNull Task<Void> task) {
                                                             if (task.isSuccessful()) {
-                                                                addTeam();
+
+                                                                memberClass.setEmail(email.getText().toString().trim());
+                                                                memberClass.setNickname(nickname.getText().toString().trim());
+                                                                memberClass.setUsersPass(usersPass);
+                                                                memberClass.setPoints(points);
+
+                                                                if (!phone.getText().toString().equals("")){
+
+                                                                    phoneString = phone.getText().toString().trim();
+                                                                    Long phone = Long.parseLong(phoneString);
+
+                                                                    memberClass.setPhone(phone);
+                                                                }
+
+                                                                databaseReference.push().setValue(memberClass);
+
                                                                 if (task.isSuccessful()){
                                                                     progressBar.setVisibility(View.GONE);
 
                                                                     Toast.makeText(MainActivity.this, weryficationEmailSend,
                                                                             Toast.LENGTH_LONG).show();
+
+                                                                    startActivity(new Intent(MainActivity.this, LoginActivity.class));
                                                                     email.setText("");
                                                                     teamName.setText("");
                                                                     nickname.setText("");
@@ -161,23 +192,5 @@ public class MainActivity extends AppCompatActivity {
                 repetPassword.setText("");
             }
         });
-   }
-   private void addTeam(){
-        String Team = teamName.getText().toString().trim();
-
-
-        if (!TextUtils.isEmpty(Team)){
-
-            String id = databaseReference.push().getKey();
-
-            spice.gears.android.technologies.qrcodegame.Team team = new Team(Team);
-
-            databaseReference.child(id).setValue(team);
-
-
-       }else {
-            Toast.makeText(MainActivity.this, enterNickname,
-                    Toast.LENGTH_LONG).show();
-        }
    }
 }
