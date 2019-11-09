@@ -7,13 +7,18 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="username"> </string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="menu_tools">Tools</string>
-    <string name="menu_share">Share</string>
-    <string name="menu_send">Send</string>
+    <string name="menu_QRscaner">Zeskanuj kod</string>
+    <string name="menu_my_qr">Mój kod</string>
+    <string name="menu_ranking">Ranking</string>
+    <string name="menu_quests">Zadania</string>
+    <string name="menu_social_media">Media</string>
+
+    <string name="menu_item_name">Informacje</string>
+    <string name="menu_about_us">O nas</string>
+    <string name="menu_help_info">Pomoc</string>
+    <string name="menu_info">Informacje</string>
 
     <string name="enter_email_password_and_nickname">Musisz podać adres email, hasło oraz nick</string>
     <string name="enter_email_and_password">Musisz podać adres email oraz hasło</string>
@@ -21,18 +26,19 @@
     <string name="enter_password">Musisz podać hasło</string>
     <string name="forgot_pass_email_send">Wysłano hasło na twój adres email</string>
     <string name="werification_email_send">Wysłano email weryfikacyjny</string>
+    <string name="werificate_your_email">Sprawdz swoją skrzynkę odbiorczą</string>
     <string name="passwords_are_not_the_same">Hasła nie są takie same</string>
     <string name="enter_nickname">Musisz podać nick</string>
 
     <string name="email_hint">Email</string>
     <string name="phone_hint">Numer telefonu (opcjonalnie)</string>
-    <string name="team_hint">Team (opcjonalnie)</string>
     <string name="nickname_hint">Nick</string>
     <string name="password_hint">Hasło</string>
     <string name="repeat_password_hint">Powtórz hasło</string>
 
     <string name="signup_btn">Załóż konto</string>
     <string name="login_btn">Zaloguj</string>
+    <string name="logout_btn">Wyloguj</string>
     <string name="forgot_password_btn">Zresetuj hasło</string>
 
 

@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     Button userForgotPass;
     Button userSignup;
 
-    String weryficationEmailSend;
+    String weryficateEmail;
     String enterEmail;
     String enterPass;
 
@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
         userForgotPass = findViewById(R.id.btnResetPassword);
         userSignup = findViewById(R.id.btnRegister);
 
-        weryficationEmailSend = getString(R.string.werification_email_send);
+        weryficateEmail = getString(R.string.werificate_your_email);
         enterEmail = getString(R.string.enter_email);
         enterPass = getString(R.string.enter_password);
 
@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                                                             if (firebaseAuth.getCurrentUser().isEmailVerified()){
                                                                 startActivity(new Intent(LoginActivity.this, MainAppActivity.class));
                                                             }else {
-                                                                Toast.makeText(LoginActivity.this, weryficationEmailSend,
+                                                                Toast.makeText(LoginActivity.this, weryficateEmail,
                                                                         Toast.LENGTH_LONG).show();
                                                             }
 

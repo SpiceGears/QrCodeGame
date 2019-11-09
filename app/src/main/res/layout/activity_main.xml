@@ -44,20 +44,12 @@
         android:ems="10"
         android:inputType="number"/>
 
-    <EditText
-        android:id="@+id/etTeam"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/etPhone"
-        android:hint="@string/team_hint"
-        android:ems="10"
-        android:inputType="text"/>
 
     <EditText
         android:id="@+id/etNickname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/etTeam"
+        android:layout_below="@+id/etPhone"
         android:hint="@string/nickname_hint"
         android:ems="10"
         android:inputType="text"/>

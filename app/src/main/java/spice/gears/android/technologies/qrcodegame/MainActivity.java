@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
     ProgressBar progressBar;
     EditText email;
     EditText phone;
-    EditText teamName;
     EditText nickname;
     EditText password;
     EditText repetPassword;
@@ -62,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
         email = findViewById(R.id.etEmail);
         phone = findViewById(R.id.etPhone);
         password= findViewById(R.id.etPassword);
-        teamName = findViewById(R.id.etTeam);
         nickname = findViewById(R.id.etNickname);
         repetPassword = findViewById(R.id.etRepetPassword);
         signup = findViewById(R.id.btnSignup);
@@ -128,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
                                                                     memberClass.setPhone(phone);
                                                                 }
 
-                                                                databaseReference.push().setValue(memberClass);
+                                                                databaseReference.child(nickname.getText().toString().trim()).setValue(memberClass);
 
                                                                 if (task.isSuccessful()){
                                                                     progressBar.setVisibility(View.GONE);
@@ -138,7 +136,6 @@ public class MainActivity extends AppCompatActivity {
 
                                                                     startActivity(new Intent(MainActivity.this, LoginActivity.class));
                                                                     email.setText("");
-                                                                    teamName.setText("");
                                                                     nickname.setText("");
                                                                     password.setText("");
                                                                     repetPassword.setText("");
@@ -186,7 +183,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, LoginActivity.class));
                 email.setText("");
-                teamName.setText("");
                 nickname.setText("");
                 password.setText("");
                 repetPassword.setText("");

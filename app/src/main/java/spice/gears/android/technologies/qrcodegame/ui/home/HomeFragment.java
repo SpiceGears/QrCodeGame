@@ -12,9 +12,13 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+
+
+
 import spice.gears.android.technologies.qrcodegame.R;
 
 public class HomeFragment extends Fragment {
+
 
     private HomeViewModel homeViewModel;
 
@@ -31,5 +35,6 @@ public class HomeFragment extends Fragment {
             }
         });
         return root;
+
     }
 }
