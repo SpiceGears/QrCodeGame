@@ -1,3 +1,5 @@
+//test
+
 package spice.gears.android.technologies.qrcodegame;
 
 import androidx.annotation.NonNull;
